@@ -331,7 +331,7 @@ export default {
       userCurrency: 'USD',
       secondCurrency: 'EUR',
       userInput: 100,
-      currencyRate: 2,
+      currencyRate: null,
       updateTime: undefined,
       textError: ''
     }
@@ -381,8 +381,8 @@ export default {
     }
   },
   async mounted() {
-    // await this.getCountryCode();
-    // await this.getCurrencyRate();
+    await this.getCountryCode();
+    await this.getCurrencyRate();
   }
 }
 </script>
