@@ -22,7 +22,7 @@
     <div>
       <h1 class="text-white">Курс валют</h1>
       <p class="text-light">Курс 1 {{secondCurrency}} = {{ currencyRate }} {{ userCurrency }}. Обновлено {{ updateTime }}</p>
-      <div class="d-flex justify-content-center align-items-center">
+      <div class="d-sm-flex text-center justify-content-center align-items-center">
         <div class="input-group">
           <div class="input-group-prepend">
             <select class="form-control form-select-lg rounded-start rounded-0"
