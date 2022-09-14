@@ -42,7 +42,11 @@
               v-model="userInput"
           >
         </div>
-        <img src="./assets/svg/left-right.svg" alt="changer-icon" class="icon rotate-90 m-3">
+        <button class="change-side-btn"
+                @click="changeSide"
+        >
+          <img src="./assets/svg/left-right.svg" alt="changer-icon" class="icon rotate-90 m-3">
+        </button>
         <div class="input-group">
           <div class="input-group-prepend">
             <select class="form-control form-select-lg rounded-start rounded-0"
@@ -327,12 +331,18 @@ export default {
       userCurrency: 'USD',
       secondCurrency: 'EUR',
       userInput: 100,
-      currencyRate: null,
+      currencyRate: 2,
       updateTime: undefined,
       textError: ''
     }
   },
   methods: {
+    changeSide() {
+      let userCurrencySave = this.userCurrency;
+      this.userCurrency = this.secondCurrency;
+      this.secondCurrency = userCurrencySave;
+      this.getCurrencyRate();
+    },
     async getCountryCode() {
       let countryCode;
       await fetch('https://get.geojs.io/v1/ip/country.json')
@@ -367,13 +377,12 @@ export default {
       this.getCurrencyRate()
     },
     secondCurrency() {
-      console.log('secondCurrency');
       this.getCurrencyRate()
     }
   },
   async mounted() {
-    await this.getCountryCode();
-    await this.getCurrencyRate();
+    // await this.getCountryCode();
+    // await this.getCurrencyRate();
   }
 }
 </script>
@@ -426,6 +435,12 @@ export default {
 
 .rotate-90 {
   transform: rotate(90deg);
+}
+
+.change-side-btn {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
 }
 
 input[readonly],
