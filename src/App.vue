@@ -358,7 +358,7 @@ export default {
           });
     },
     async getCurrencyRate() {
-      fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${this.userCurrency}&from=${this.secondCurrency}&amount=1&apikey=nCRs5WMRksZ5bAvhgZPfuLG0P7QPxrzU`)
+      fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${this.userCurrency}&from=${this.secondCurrency}&amount=1&apikey=RKS7wdiAh7PlaGJde9yprpFOvvPb053U`)
           .then(response => response.json())
           .then(json => {
             this.currencyRate = json.result;
